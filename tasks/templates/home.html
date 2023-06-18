@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+<main class="container py-5">
+  <section class="card card-body">
+    <h1 class="display-1 text-center">Django App</h1>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
+      consectetur a culpa sequi distinctio est repellat architecto blanditiis,
+      voluptatum, ex incidunt molestiae omnis praesentium vero perferendis enim
+      similique labore voluptates, fuga voluptas perspiciatis. Similique sed
+      maxime minus accusantium eius, quis aliquam, quaerat repellat facere esse,
+      dolorum cumque odio? Quod maiores dignissimos deserunt ipsum, eos
+      laudantium nostrum vel corrupti inventore sequi eius laboriosam quaerat
+      obcaecati eum explicabo dolor ad, neque numquam tenetur veritatis fugit
+      adipisci quisquam cupiditate. Ad placeat minima accusantium eaque!
+      Accusantium ratione sunt cum veritatis! Iure error sunt ex odio quasi
+      dolorem velit quam adipisci id suscipit quia esse magnam labore earum et
+      eaque deleniti, expedita, quisquam placeat ipsum omnis tempore impedit
+      natus voluptatum? Maiores neque nisi eos accusamus laudantium officia quod
+      aliquam illum libero sed dolor consequuntur inventore obcaecati nihil,
+      magnam, facilis amet, consequatur voluptatum et. Quas ea, qui esse nemo
+      unde aliquid omnis, inventore assumenda iste eius ducimus perspiciatis
+      cumque nam distinctio consequuntur ad hic eaque, exercitationem laudantium
+      beatae. Ipsum, eum enim natus beatae recusandae magnam at quod odit cum
+      autem fuga explicabo voluptates repudiandae consequatur, non quis sint
+      accusantium soluta quo ipsa! Quo fuga soluta, voluptates ut dolore
+      provident qui quam veniam repudiandae quidem alias reprehenderit?
+    </p>
+
+    {% if not user.is_authenticated %}
+    <div class="text-center">
+      <a class="btn btn-dark" href="{% url 'signup' %}">Sign Up</a>
+      <a class="btn btn-secondary" href="{% url 'signin' %}">Log in</a>
+    </div>
+    {% endif %}
+
+  </section>
+</main>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 mt-5">
+      <!-- En el action le paso la ruta donde quiero que envie el formulario -->
+
+      <!-- si este formulario es servido en el slash "signup"´, si no pongo el action por defecto lo envia a la misma ruta al mismo slash signup -->
+      <form action="/signup/" method="POST" class="card card-body">
+        <h1 class="text-center">Sign Up</h1>
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+        {% endif %}
+
+        <!-- si inspeccionamos el codigo vemos un input oculto, este tiene un valor que asegura que nuestro formulario fue creado por nuestro servidor y no por oreo, si alguien suplantara o clona nuestra pagina al enviar un dato no va a poder ser procesado porque el token no es el mismo-->
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="username">Username: </label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="form-control"
+            placeholder="Enter your username"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password1">Password: </label>
+          <input
+            type="password"
+            name="password1"
+            id="password1"
+            class="form-control"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password2">Confirm password: </label>
+          <input
+            type="password"
+            name="password2"
+            id="password2"
+            class="form-control"
+            placeholder="Confirm your password"
+          />
+        </div>
+
+        <button class="btn btn-primary">Create an account</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

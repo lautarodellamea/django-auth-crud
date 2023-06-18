@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="container">
+  <div class="row">
+    <section class="col-md-4 offset-md-4 mt-5">
+      <form action="/signin/" method="POST" class="card card-body">
+        {% csrf_token %}
+
+        <h1 class="text-center">Log in</h1>
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+        {% endif %}
+
+        <!-- si inspeccionamos el codigo vemos un input oculto, este tiene un valor que asegura que nuestro formulario fue creado por nuestro servidor y no por oreo, si alguien suplantara o clona nuestra pagina al enviar un dato no va a poder ser procesado porque el token no es el mismo-->
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="username">User: </label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="form-control"
+            placeholder="User"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password">Password: </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form-control"
+            placeholder="Password"
+          />
+        </div>
+
+        <button class="btn btn-primary">Log in</button>
+      </form>
+    </section>
+  </div>
+</main>
+
+{% endblock %}
